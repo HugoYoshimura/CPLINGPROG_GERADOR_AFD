@@ -32,7 +32,7 @@ public class Gerador {
 			writer = new PrintWriter(nome + ".java", "UTF-8");
 			
 			// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  = = = = = = = = = = = = =
-			// DeclaraÁ„o da classe e mÈtodo construtor
+			// Declara√ß√£o da classe e m√©todo construtor
 			writer.println(
 					"import java.util.Scanner; \r\n" +
 							"\r\n" +
@@ -48,7 +48,7 @@ public class Gerador {
 					"	\r\n");
 			
 			// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  = = = = = = = = = = = = =
-			// CriaÁ„o dos mÈtodos de estados
+			// Cria√ß√£o dos m√©todos de estados
 			String codeElse = "";
 			
 			for(int i = 0; i < numEstados; i++) {
@@ -68,7 +68,7 @@ public class Gerador {
 				writer.println(
 						"		}\r\n");
 				
-				// aÁıes
+				// a√ß√µes
 				for(int j = 0; j < alfabeto.length; j++) {
 					if(acao[i][j] >=0) {
 						writer.println(
@@ -96,7 +96,7 @@ public class Gerador {
 			}
 			
 			// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  = = = = = = = = = = = = =
-			// Escreve mÈtodo rejeitar
+			// Escreve m√©todo rejeitar
 			writer.println(
 					"	public void rejeitar() {\r\n" + 
 					"		System.out.println(\"Rejeita \\\"\" + new String(palavra) + \"\\\"\");\r\n" + 
@@ -105,7 +105,7 @@ public class Gerador {
 					"	\r\n");
 
 			// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  = = = = = = = = = = = = =
-			// Escreve mÈtodo aceitar
+			// Escreve m√©todo aceitar
 			writer.println(
 					"	public void aceitar() {\r\n" + 
 					"		System.out.println(\"Aceita \\\"\" + new String(palavra) + \"\\\"\");\r\n" + 
@@ -114,14 +114,14 @@ public class Gerador {
 					"	\r\n");
 			
 			// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  = = = = = = = = = = = = =
-			// DeclaraÁ„o da classe main
+			// Declara√ß√£o da classe main
 			writer.println(
 					"	public static void main(String[] args) {\r\n" + 
 					"		Scanner scan = new Scanner(System.in);\r\n" +
 					"		System.out.println(\"Insira a palavra:\");\r\n" +
 					"		String palavra = scan.nextLine();\r\n" +
 					"		" + nome + " obj = new " + nome + "(palavra.toCharArray());\r\n" + 
-					"		obj.e0();\r\n" +
+					"		obj.e" + estadoInicial + "();\r\n" +
 					"	}\r\n" +
 					"	\r\n" +
 					"}\r\n");
@@ -135,7 +135,7 @@ public class Gerador {
 		if(status) {
 			return "Gerado arquivo " + nome + ".java!";
 		} else {
-			return "Arquivo n„o gerado";
+			return "Arquivo n√£o gerado";
 		}
 		
 	}
